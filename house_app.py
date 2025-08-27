@@ -18,7 +18,7 @@ def load_data(path: str):
     df = pd.read_csv(path)
     return df
 
-DATA_PATH = "house_prices.csv"
+DATA_PATH = "house_prices.csv"   # ✅ Keep CSV in same folder as this script
 
 try:
     raw_df = load_data(DATA_PATH)
@@ -77,12 +77,28 @@ b_med = int(df["bedrooms"].median())
 ba_med = float(df["bathrooms"].median())
 s_med = int(df["sqft_living"].median())
 
-# ---- Input Sliders ----
+# ---- Custom CSS for Box Style ----
+st.markdown("""
+    <style>
+    .box {
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# ---- Input Sliders in Box ----
 st.subheader("Enter Home Details")
 
+st.markdown('<div class="box">', unsafe_allow_html=True)
 bedrooms = st.slider("Bedrooms", max(1, b_lo), max(b_lo + 1, b_hi), b_med)
+st.markdown('</div>', unsafe_allow_html=True)
 
-# bathrooms → allow 0.5 steps (since data can be 1.5, 2.5 etc.)
+st.markdown('<div class="box">', unsafe_allow_html=True)
 bathrooms = st.slider(
     "Bathrooms",
     float(max(1, np.floor(ba_lo * 2) / 2)),
@@ -90,10 +106,13 @@ bathrooms = st.slider(
     float(round(ba_med * 2) / 2),
     step=0.5
 )
+st.markdown('</div>', unsafe_allow_html=True)
 
+st.markdown('<div class="box">', unsafe_allow_html=True)
 sqft_living = st.slider(
     "Living Area (sqft)", s_lo, max(s_lo + 10, s_hi), s_med, step=10
 )
+st.markdown('</div>', unsafe_allow_html=True)
 
 # ---- Predict ----
 X_new = pd.DataFrame([{
