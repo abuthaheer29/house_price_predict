@@ -13,7 +13,7 @@ st.set_page_config(page_title="🏡 House Price Predictor", layout="centered")
 
 st.title("🏠 Abu's House Price Prediction")
 st.caption("Machine Learning model using Bedrooms, Bathrooms, and Sqft")
-st.image(r"/Users/abuthaheerm/Downloads/house.jpg", width=1000) 
+st.image(r"house.jpg", width=800) 
 
 st.divider()  # ✅ Divider line
 
@@ -37,7 +37,7 @@ def load_data(path: str):
     df = pd.read_csv(path)
     return df
 
-DATA_PATH = "/Users/abuthaheerm/Downloads/house_prices.csv"
+DATA_PATH = "house_prices.csv"
 
 try:
     raw_df = load_data(DATA_PATH)
