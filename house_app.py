@@ -18,7 +18,7 @@ def load_data(path: str):
     df = pd.read_csv(path)
     return df
 
-DATA_PATH = "/Users/abuthaheerm/Downloads/house_prices.csv"
+DATA_PATH = "house_prices.csv"
 
 try:
     raw_df = load_data(DATA_PATH)
