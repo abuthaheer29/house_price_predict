@@ -8,6 +8,7 @@ import numpy as np
 st.set_page_config(page_title="₹ House Price (Bedrooms + Bathrooms + Sqft)", layout="centered")
 st.title("🏠 House Price Predictor")
 st.caption("Features used: Bedrooms, Bathrooms, Living Area (sqft)")
+st.image("house.jpg", caption="Sample House", use_column_width=True)
 
 # ---- Settings ----
 INR_PER_USD_DEFAULT = 83.0  # Default conversion rate
