@@ -13,7 +13,7 @@ st.set_page_config(page_title="🏡 House Price Predictor", layout="centered")
 
 st.title("🏠 Abu's House Price Prediction")
 st.caption("Machine Learning model using Bedrooms, Bathrooms, and Sqft")
-st.image(r"house.jpg", width=600,layout="centered") 
+st.image(r"house.jpg", width=800) 
 
 st.divider()  # ✅ Divider line
 
